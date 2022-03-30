@@ -2,7 +2,7 @@ mkdir -p ~/.streamlit/
 
 echo "\
 [server]\n\
-port = $PORT\n\
+web: npm start -p $PORT\n\
 enableCORS = false\n\
 headless = true\n\
 \n\
