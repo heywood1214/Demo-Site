@@ -18,8 +18,7 @@ stockStartDate ='2013-01-01'
 st.header('Welcome to my project on analyzing ETFs and visualizing your stock portfolio')
 st.subheader('Creator: Heywood Lau')
 
-
-image = Image.open("Linkedln Profile.jfif")
+image = Image.open("https://raw.githubusercontent.com/heywood1214/Demo-site/main/Linkedln Profile.jfif")
 st.image(image,use_column_width=150)
 
 #Create a sidebar header
