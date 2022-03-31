@@ -23,7 +23,7 @@ def app():
     st.subheader('Creator: Heywood Lau')
 
 
-    image = Image.open("./Linkedln Profile.png")
+    image = Image.open("./images/Linkedln Profile.png")
     st.image(image,use_column_width=150)
 
     #Create a sidebar header
