@@ -23,7 +23,7 @@ def app():
     st.subheader('Creator: Heywood Lau')
 
 
-    image = Image.open("C:/Users/heywo/OneDrive - Queen's University/Heywood/Linkedln Profile.jfif")
+    image = Image.open("Linkedln Profile.jfif")
     st.image(image,use_column_width=150)
 
     #Create a sidebar header
