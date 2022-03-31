@@ -23,8 +23,8 @@ def app():
     st.subheader('Creator: Heywood Lau')
 
 
-    image = Image.open("./images/Linkedln Profile.png")
-    st.image(image,use_column_width=150)
+    #image = Image.open("./images/Linkedln Profile.png")
+    #st.image(image,use_column_width=150)
 
     #Create a sidebar header
     st.sidebar.header('User Input')
