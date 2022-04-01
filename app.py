@@ -15,8 +15,8 @@ This multi-page app can be used for personal finance and data analytics purposes
 
 #Add application here 
 
-app.add_app("home", home.app)
-app.add_app("Stock", webapp_stock.app)
+app.add_app("Homepage", home.app)
+app.add_app("Stock/ETF Data Analysis", webapp_stock.app)
 
 
 app.run()
