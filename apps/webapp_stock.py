@@ -32,7 +32,7 @@ def app():
     #Create a function to get users input
     def get_input():
         start_date = st.sidebar.text_input("Start Date","2013-01-01")
-        end_date = st.sidebar.text_input("End Date","2020-01-01")    
+        end_date = st.sidebar.text_input("End Date","2022-03-30")    
         stock_symbol = st.sidebar.text_input("First ETF/Stock","TSLA")
         second_ETF = st.sidebar.text_input("Second ETF/Stock","XEI.TO")
         st.sidebar.text('ETFs listed in TSX needs\n to add ".TO" behind ticker symbol\n (i.e. "VSP.TO")')
@@ -119,12 +119,6 @@ def app():
     #st.write(X)
 
 
-    #fig, ax = plt.subplots()
-    #sns.heatmap(df_col.corr(), ax=ax)
-    #st.write(fig)
-
-    #plt.subplots(figsize=(11,11))
-
     st.header("")
     fig, ax = plt.subplots()
     sns.heatmap(daily_return(df,df_2).corr(),annot=True,fmt='.2%', ax = ax)
@@ -139,38 +133,84 @@ def app():
     st.write(cov_matrix.iloc[0,0])
 
     st.subheader("Volatility")
-    st.write((daily_return(df,df_2)).var())
+    st.write("Volatility is calculated based on the standard deviation/variance around the mean price. This provides investor an idea of how far the price might deviate from its average")
 
     #volatility matrix
-    volatility=np.sqrt((daily_return(df,df_2)))*100
+    st.write("The below volatility is computed using daily % price change difference. Therefore, you could expect x% of variation per day using the date range you inputted")
     st.write((daily_return(df,df_2)).std()*100)
+    
+    volatility=np.sqrt(((daily_return(df,df_2))**2))*100
     st.subheader("Volatility by Standard Deviation")
     st.write((volatility))
 
     #show the mean or average daily simple return
     daily_average_return = (daily_return(df,df_2)).mean()*100
-    st.write("Daily average return: "+str(round((daily_average_return),2)))
+
+    #st.write(daily_average_return[daily_average_return.index.duplicated()])
+    #st.write(type(daily_return(df,df_2)))
+
+
+
+    st.subheader("Average " + symbol + " Daily % Change from start date to end date")
+    st.write(((df['Adj Close'].iloc[-1])-(df['Adj Close'].iloc[0])/(df['Adj Close'].iloc[0]))/len((df['Adj Close'])) )
+
+    first_ETF_daily_change = ((df['Adj Close'].iloc[-1])-(df['Adj Close'].iloc[0])/(df['Adj Close'].iloc[0]))/len((df['Adj Close'])) 
+
+    st.subheader("Average " + second_ETF + " Daily % Change from start date to end date")
+    st.write(((df_2['Adj Close'].iloc[-1])-(df_2['Adj Close'].iloc[0])/(df_2['Adj Close'].iloc[0]))/len((df_2['Adj Close'])))
+    second_ETF_daily_change = ((df_2['Adj Close'].iloc[-1])-(df_2['Adj Close'].iloc[0])/(df_2['Adj Close'].iloc[0]))/len((df_2['Adj Close']))
+
+
+
+
+    st.write("Daily average return is "+ ((((daily_average_return).round(2)).apply(str))) + "%")
 
     #show the average monthly return 
-    monthly_average_return = daily_average_return*20
+    first_ETF_monthly_average_return = first_ETF_daily_change*22
+    second_ETF_monthly_average_return = second_ETF_daily_change*22
     st.header("Monthly Average Return")
-    st.write(monthly_average_return)
+    st.subheader(symbol)
+    st.write(first_ETF_monthly_average_return)
+    st.subheader(second_ETF)
+    st.write(second_ETF_monthly_average_return)
+
+
+
+    monthly_returns = [first_ETF_monthly_average_return,second_ETF_monthly_average_return]
+    #st.write(pd.DataFrame(monthly_returns))
 
     #annualized returns
-    annualized_returns = (daily_return(df,df_2)).mean()*100*252
-    st.write(annualized_returns)
+    st.header("Annuallaized Returns")
+    first_ETF_annualized_returns = first_ETF_daily_change*252
+    second_ETF_annualized_returns = second_ETF_daily_change*252
+    st.subheader(symbol)
+    st.write(first_ETF_annualized_returns)
+    st.subheader(second_ETF)
+    st.write(second_ETF_annualized_returns)
+    #st.write( "The annualized returns of " + symbol + "is" + first_ETF_annualized_returns)
+    #st.write( "The annualized returns of " + second_ETF + "is"  + second_ETF_annualized_returns)
+
+
 
     #Display the close price
     st.header(symbol+" Close Price\n")
 
 
     #Display the Volume
-    st.header(symbol+" Volume\n")
-    st.line_chart(df['Volume'])
+    st.header(symbol + " &" + second_ETF +" Volume\n")
+
+    data = [df['Volume'],df_2['Volume']]
+    headers=[symbol,second_ETF]
+    df_3 = pd.concat(data, axis = 1, keys = headers)
+    st.line_chart(df_3)
+
 
     #Get statistics on data
-    st.header('Data Statstics')
+    st.header('Data Statstics for ' + symbol)
     st.write(df.describe())
+
+    st.header("Data Statistics for " + second_ETF)
+    st.write(df_2.describe())
 
     #Thoughts on what else to include
     """ 
@@ -179,6 +219,4 @@ def app():
     3. Compare dividend ETFs vs S&P 500 
     4. What happened when there was a correction
     5. Metal Prices when there was a correction
-
-
     """
