@@ -1,4 +1,5 @@
 #import libraries
+from enum import auto
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -14,6 +15,7 @@ def app():
 
     plt.style.use('fivethirtyeight')
 
+    st.image("https://images.unsplash.com/photo-1616964913831-5d22886c3392?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmV0aXJlbWVudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",use_column_width = 'always')
 
     #saving rate
     saving_rate = st.number_input("What is your saving rate", value = 0.3)
