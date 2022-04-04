@@ -20,12 +20,20 @@ def app():
 
     #income
     annual_income = st.number_input("What is your annual after tax income", value = 39500)
+    annual_income = round(annual_income,1)
 
     #Monthly Income
-    st.subheader("Monthly After Tax Income: " + annual_income/12)
+    st.subheader("Monthly After Tax Income: " + "$"+ str(round((annual_income/12),1)))
 
     #yearly expense
     annual_expense = st.number_input("What is your annual expense", value = 24000)
+    annual_expense=round(annual_expense,1)
+
+    #Monthly expense
+    st.subheader("Monthly Expense: " + "$"+ str(round((annual_expense/12),1)))
+
+
+
 
     #interest rate/dividends
     dividend_rate = st.number_input("What is your interest/dividend rate of your investments?", value = 0.02)
@@ -35,16 +43,16 @@ def app():
 
     #calculate expected annual return
 
-    annual_return = int(round((annual_investment_amount * dividend_rate)))
+    annual_return = (round((annual_investment_amount * dividend_rate)))
 
     #current year
     current_year = (st.number_input ("What is the current year", value = 2020))
 
     #withdrawl rate
-    withdrawl_rate = st.number_input("What is your desired withdrawl rate" , value = 0.04,min_value = 0.00)
+    withdrawl_rate = st.number_input("What is your desired withdrawl rate" , value = 0.04,min_value = 0.0)
 
     #video: investment = income-expenses
-    total_invested_amount = round(annual_investment_amount,2)
+    total_invested_amount = round(annual_investment_amount,1)
 
     #Empty list of years
     year_list = []
@@ -58,16 +66,16 @@ def app():
     year_list.append(current_year)
     annual_income_list.append(annual_income)
     annual_expense_list.append(annual_expense)
-    annual_investment_amount_list.append(round(annual_investment_amount,2))
-    total_invested_amount_list.append(annual_investment_amount)
-    annual_returns_list.append(annual_return)
+    annual_investment_amount_list.append(round(annual_investment_amount,1))
+    total_invested_amount_list.append(round(annual_investment_amount,1))
+    annual_returns_list.append(round(annual_return,1))
 
 
     #a variable to store the maount of years investor desired
     number_of_years_invested = st.number_input("Number of years invested", value = 30)
 
     for i in range(0, number_of_years_invested -1):
-        total_invested_amount = (annual_income - annual_expense) + annual_return + total_invested_amount
+        total_invested_amount = round(((annual_income - annual_expense) + annual_return + total_invested_amount),1)
         annual_return = total_invested_amount * (dividend_rate)
         year_list.append(current_year+1+i)
         annual_income_list.append(annual_income)
@@ -85,10 +93,17 @@ def app():
     df['Total Invested Amount'] = total_invested_amount_list
     df['Annual Returns'] = annual_returns_list
 
+
     annual_withdrawl_amount = np.array(total_invested_amount_list)*withdrawl_rate
     df['Annual Withdrawl Amount']=annual_withdrawl_amount
 
-    st.write(df)
+    df = np.round(df, decimals = 1)
+    df['Total Invested Amount']= df['Total Invested Amount'].apply(np.floor)
+    #st.write(df.style.format({ ' ''{:.2f}'}))
+
+    st.dataframe(df.style.format(subset=['Total Invested Amount', 'Annual Returns','Annual Withdrawl Amount'], formatter="{:.2f}"))
+
+    #st.write(df)
 
 
     plt.figure(figsize = (12,4))
