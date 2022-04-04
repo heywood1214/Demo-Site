@@ -1,4 +1,3 @@
-#Description: this is a stock market dashboard to show charts and data
 
 #import libraries
 import streamlit as st
@@ -11,7 +10,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 
 def app():
-    st.title ("Home")
+    st.title ("Market and ETF Analysis")
 
     plt.style.use('fivethirtyeight')
 
