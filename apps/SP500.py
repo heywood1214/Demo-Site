@@ -17,7 +17,7 @@ import plotly.express as px
 plt.style.use('fivethirtyeight')
 
 def app():
-    st.title ("Retirement Forecast based on Dividends/Capital Gain")
+    #st.title ("Forecast based on Dividends/Capital Gain")
 
     plt.style.use('fivethirtyeight')
 
@@ -25,7 +25,7 @@ def app():
 
     st.sidebar.header("Stock/ETF for prediction")
     st.title ("S&P 500/ETFs Linear Regression Prediction ")
-
+    st.image("https://images.unsplash.com/photo-1614029496114-c84c1bbef6c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE4fHxzdG9ja3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",use_column_width = 'always')
 
 
     today = datetime.today().strftime('%Y-%m-%d')
