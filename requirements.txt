@@ -13,5 +13,5 @@ osqp>=0.4.1
 ecos>=2
 scs>=1.1.6
 scipy>=1.1.0
-git+https://github.com/cvxpy#egg=cvxpy
+git+https://github.com/cvxpy/cvxpy#egg=cvxpy
 glpk
