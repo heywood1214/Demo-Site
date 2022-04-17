@@ -14,5 +14,4 @@ ecos>=2
 scs>=1.1.6
 scipy>=1.1.0
 git+https://github.com/cvxpy/cvxpy#egg=cvxpy
-cvxpy.reductions.discrete2mixedint
 glpk
