@@ -10,8 +10,8 @@ This multi-page app can be used for personal finance and data analytics purposes
 """)
 
 #Add application here 
-app.add_app("Retirement Calculation", retirement.app)
 app.add_app("Homepage", home.app)
+app.add_app("Retirement Calculation", retirement.app)
 app.add_app("Market and ETF Analysis", webapp_stock.app)
 app.add_app("Retirement Calculation", retirement.app)
 app.add_app("S&P 500/ETFs Linear Regression Prediction",SP500.app)
