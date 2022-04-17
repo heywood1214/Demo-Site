@@ -37,7 +37,6 @@ ipython-genutils==0.2.0
 ipywidgets==7.6.5
 jedi==0.18.1
 Jinja2==3.0.3
-joblib @ file:///tmp/build/80754af9/joblib_1635411271373/work
 jsonschema==4.2.1
 jupyter-client==7.1.0
 jupyter-core==4.9.1
@@ -67,7 +66,6 @@ parso==0.8.3
 pickleshare==0.7.5
 Pillow==8.4.0
 pipreqs==0.4.11
-plotly @ file:///opt/conda/conda-bld/plotly_1646671701182/work
 prometheus-client==0.12.0
 prompt-toolkit==3.0.23
 protobuf==3.19.1
@@ -87,19 +85,14 @@ pywinpty==1.1.6
 pyzmq==22.3.0
 qdldl==0.1.5.post2
 requests==2.26.0
-scikit-learn @ file:///C:/ci/scikit-learn_1642599122269/work
-scipy @ file:///C:/ci/scipy_1616703425152/work
 scs==3.2.0
 seaborn==0.11.2
 Send2Trash==1.8.0
 setuptools-scm==6.3.2
-six @ file:///tmp/build/80754af9/six_1644875935023/work
 smmap==5.0.0
 streamlit==1.2.0
-tenacity @ file:///C:/ci/tenacity_1632759497842/work
 terminado==0.12.1
 testpath==0.5.0
-threadpoolctl @ file:///Users/ktietz/demo/mc3/conda-bld/threadpoolctl_1629802263681/work
 toml==0.10.2
 tomli==1.2.2
 toolz==0.11.2
