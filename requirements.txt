@@ -9,4 +9,4 @@ datetime==4.3
 scikit-learn==1.0.2
 plotly==5.6.0
 pyportfolioopt==1.5.2
-pyomo
+git+https://github.com/cvxgrp/cvxpy.git#egg=cvxpy[glpk]
