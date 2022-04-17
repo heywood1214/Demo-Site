@@ -15,7 +15,7 @@ app.add_app("Retirement Calculation", retirement.app)
 app.add_app("Market and ETF Analysis", webapp_stock.app)
 app.add_app("Retirement Calculation", retirement.app)
 app.add_app("S&P 500/ETFs Linear Regression Prediction",SP500.app)
-app.add_app("Portfolio Optimization - build any portfolio from the Russell 2000 Index",portfolio_opt.app)
+app.add_app("Portfolio Optimization - Build any portfolio from the Russell 2000 Index",portfolio_opt.app)
 
 
 app.run()
