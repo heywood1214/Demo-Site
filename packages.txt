@@ -1,2 +1,2 @@
-cvxopt==1.2.0
-cvxpy==1.2.0
+cvxopt
+cvxpy
