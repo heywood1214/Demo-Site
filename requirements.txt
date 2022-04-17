@@ -11,4 +11,4 @@ plotly==5.6.0
 pyportfolioopt==1.5.2
 cvxopt ==1.2.0
 cvxpy==1.2.0
-glpk ==4.65
+glpk==4.65
