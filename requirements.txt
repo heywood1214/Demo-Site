@@ -9,9 +9,5 @@ datetime==4.3
 scikit-learn==1.0.2
 plotly==5.6.0
 pyportfolioopt==1.5.2
-osqp>=0.4.1
-ecos>=2
-scs>=1.1.6
-scipy>=1.1.0
 git+https://github.com/cvxpy/cvxpy#egg=cvxpy
 glpk
