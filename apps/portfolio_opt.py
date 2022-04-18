@@ -21,7 +21,7 @@ def app():
 
     st.write("You selected", stock_options)
 
-    stock_list_number = 0 
+    stock_list_number = 0
     for stock_list_number in range(len(stock_options)):
         stock_list_number = stock_list_number+1
 
@@ -89,7 +89,7 @@ def app():
 
 
         percentage_volatility = (np.round_(port_volatility, decimals = 2)).astype(str)
-        st.subheader("expected variance" ,  percentage_volatility)
+        st.subheader("expected variance",  percentage_volatility)
 
 
         st.write(np.round_(port_volatility, decimals = 2))
@@ -108,8 +108,9 @@ def app():
         updated_weights = efficient_frontier.clean_weights()
 
         st.write(updated_weights)
-        
-        import cvxpy.reductions.discrete2mixedint
+
+        # not yet in pypi:
+        # import cvxpy.reductions.discrete2mixedint
         from pypfopt.discrete_allocation import DiscreteAllocation, get_latest_prices
         latest_prices = get_latest_prices(df)
         weights = updated_weights
