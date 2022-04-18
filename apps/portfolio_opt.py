@@ -109,8 +109,6 @@ def app():
 
         st.write(updated_weights)
 
-        # not yet in pypi:
-        # import cvxpy.reductions.discrete2mixedint
         from pypfopt.discrete_allocation import DiscreteAllocation, get_latest_prices
         latest_prices = get_latest_prices(df)
         weights = updated_weights
