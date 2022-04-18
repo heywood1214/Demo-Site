@@ -14,4 +14,6 @@ ecos>=2
 scs>=1.1.6
 scipy>=1.1.0
 git+https://github.com/cvxpy/cvxpy#egg=cvxpy
+git+https://github.com/robertmartin8/PyPortfolioOpt/pyportfolioopt#egg=pyportfolioopt
+
 glpk
