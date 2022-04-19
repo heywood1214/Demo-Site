@@ -74,9 +74,6 @@ def app():
         st.subheader("Here shows the portfolio annualized returns")
 
         returns_mean_array = np.array(returns.mean())
-        st.write(returns_mean_array)
-
-        st.write(returns_mean_array*weights)
 
         portfolio_simple_annual_return = np.sum(returns_mean_array*weights)*252
         st.write(portfolio_simple_annual_return)
